@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portofolio</title>
     <link rel="stylesheet" href="dist/output.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
     <!--
@@ -46,14 +47,15 @@
               >
             </h1>
             <h2 class="font-medium text-secondary text-lg mb-5 lg:text-2xl">
-              Mahasiswa & <span class="text-dark">Web Development</span>
+              Mahasiswa &
+              <span class="text-dark" id="role-text"></span>
             </h2>
             <p class="font-medium text-secondary mb-10 leading-relaxed">
               Hidup akan selalu berakhir indah kawan, jika belum indah maka
               <span class="text-dark font-bold">belum berakhir</span>
             </p>
             <a
-              href="#"
+              href="#about"
               class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out"
               >Hubungi Saya</a
             >
@@ -221,5 +223,17 @@
         </div>
       </div>
     </section>
+
+    <!-- Load library from the CDN -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- Setup and start animation! -->
+    <script>
+      var typed = new Typed("#role-text", {
+        strings: ["", "Front", "Front-End", "Front-End Developer"],
+        typeSpeed: 100,
+        loop: true,
+      });
+    </script>
   </body>
 </html>
