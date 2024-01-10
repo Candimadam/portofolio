@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portofolio</title>
     <link rel="stylesheet" href="dist/output.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="dark:bg-slate-800 relative">
     <!--
       <header
       class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10"
@@ -35,24 +34,27 @@
       </div>
     </header>
   -->
-
+    <div id="tsparticles"></div>
     <section id="home" class="pt-10">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="w-full self-center px-4 lg:w-1/2">
             <h1 class="text-base font-semibold text-primary md:text-xl">
               Hallo Semua👋, saya
-              <span class="block font-bold text-dark text-4xl mt-1 lg:text-5xl"
+              <span
+                class="block font-bold text-dark dark:text-white text-4xl mt-1 lg:text-5xl"
                 >Candimadam</span
               >
             </h1>
             <h2 class="font-medium text-secondary text-lg mb-5 lg:text-2xl">
               Mahasiswa &
-              <span class="text-dark" id="role-text"></span>
+              <span class="text-dark dark:text-white" id="role-text"></span>
             </h2>
             <p class="font-medium text-secondary mb-10 leading-relaxed">
               Hidup akan selalu berakhir indah kawan, jika belum indah maka
-              <span class="text-dark font-bold">belum berakhir</span>
+              <span class="text-dark font-bold dark:text-white"
+                >belum berakhir</span
+              >
             </p>
             <a
               href="#about"
@@ -96,7 +98,9 @@
             <h4 class="font-bold uppercase text-primary text-lg mb-3 max-w-xl">
               Tentang Saya
             </h4>
-            <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl">
+            <h2
+              class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl dark:text-white"
+            >
               Yuk Kenali Saya Secara Singkat
             </h2>
             <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">
@@ -107,7 +111,9 @@
             </p>
           </div>
           <div class="w-full px-4 lg:w-1/2">
-            <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl pt-10">
+            <h3
+              class="font-semibold text-dark text-2xl mb-4 lg:text-3xl pt-10 dark:text-white"
+            >
               Mari kenalan Lebih Lanjut
             </h3>
             <p class="font-medium text-base text-secondary mb-6 lg:text-lg">
@@ -123,7 +129,7 @@
                 ><svg
                   width="25"
                   height="25"
-                  class="fill-current"
+                  class="fill-current dark:fill-white"
                   role="img"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -140,7 +146,7 @@
                 ><svg
                   width="25"
                   height="25"
-                  class="fill-current"
+                  class="fill-current dark:fill-white"
                   role="img"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +163,7 @@
                 ><svg
                   width="25"
                   height="25"
-                  class="fill-current"
+                  class="fill-current dark:fill-white"
                   role="img"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +180,7 @@
                 ><svg
                   width="25"
                   height="25"
-                  class="fill-current"
+                  class="fill-current dark:fill-white"
                   role="img"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +197,7 @@
                 ><svg
                   width="25"
                   height="25"
-                  class="fill-current"
+                  class="fill-current dark:fill-white"
                   role="img"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -208,7 +214,7 @@
                 ><svg
                   width="25"
                   height="25"
-                  class="fill-current"
+                  class="fill-current dark:fill-white"
                   role="img"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -223,7 +229,24 @@
         </div>
       </div>
     </section>
+    <i
+      data-lucide="sun"
+      class="absolute right-10 top-10 md:left-10 md:top-10 cursor-pointer toggle-button dark:text-white"
+      id="light-button"
+    ></i>
+    <i
+      data-lucide="moon"
+      class="absolute right-10 top-10 md:left-10 md:top-10 cursor-pointer hidden toggle-button dark:text-white"
+      id="dark-button"
+    ></i>
 
+    <script src="tsparticles.engine.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-triangles@3/tsparticles.preset.triangles.bundle.min.js"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
     <!-- Load library from the CDN -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
@@ -235,5 +258,27 @@
         loop: true,
       });
     </script>
+    <script src="toggle-mode.js"></script>
+    <script>
+      tsParticles.load({
+        id: "tsparticles",
+        options: {
+          preset: "triangles",
+          background: {
+            color: "transparent",
+          },
+          particles: {
+            color: {
+              value: "#000000",
+            },
+            move: {
+              enable: true,
+              speed: 0.7,
+            },
+          },
+        },
+      });
+    </script>
+    <script src="particle.js"></script>
   </body>
 </html>
